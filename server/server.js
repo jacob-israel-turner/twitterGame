@@ -12,6 +12,7 @@ import session from 'koa-generic-session';
 
 /* My Imports */
 import rethink from "./rethinkHub";
+import axios from 'axios';
 
 /* My consts */
 var replaceMe;
@@ -74,6 +75,11 @@ router.post('/test', function* (){
 router.get('/auth/callback', passport.authenticate('twitter', {successRedirect: `http://${publicUrl}`, failureRedirect: '/'}));
 
 router.get('/auth', passport.authenticate('twitter'));
+
+router.get('/api/user/:id', function* (){
+    console.log(this.params)
+    this.body = this.params
+})
 
 router.get('/auth/test', authed, function* (){
     console.log(twitToken, twitTokenSecret);
