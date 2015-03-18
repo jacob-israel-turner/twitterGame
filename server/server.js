@@ -12,7 +12,11 @@ import session from 'koa-generic-session';
 
 /* My Imports */
 import rethink from "./rethinkHub";
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+import { twitHub } from "./twitter/twitterFollowers";
+>>>>>>> 1a5ce462a3063c67ecc7d19f4b79f624503af20a
 
 /* My consts */
 var replaceMe;
@@ -82,15 +86,7 @@ router.get('/api/user/:id', function* (){
 })
 
 router.get('/auth/test', authed, function* (){
-    console.log(twitToken, twitTokenSecret);
-    var options = {
-        url:`https://api.twitter.com/1.1/followers/list.json?user_id${this.session.passport.user.id}&count=200`,
-        headers: {
-            Authorization: 'dunno yet'
-        }
-    };
-    this.body = this.session.passport.user;
-    //var response = yield request(`https://api.twitter.com/1.1/followers/list.json?user_id${this.session.passport.user.id}&count=200`);
+    this.body = yield twitHub.initialize(consumerKey, consumerSecret, twitToken, twitTokenSecret, this.session.passport.user.id);
 });
 
 

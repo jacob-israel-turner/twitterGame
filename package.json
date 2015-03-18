@@ -26,8 +26,7 @@
     "passport-twitter": "^1.0.3",
     "react": "^0.13.0",
     "rethinkdbdash": "^1.16.13",
-    "twit": "^1.1.20",
-    "twitter": "^1.2.5"
+    "twit": "^1.1.20"
   },
   "devDependencies": {
     "babel": "^4.7.8",
