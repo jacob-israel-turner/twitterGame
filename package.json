@@ -1,0 +1,41 @@
+{
+  "name": "FiRRE",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.5.1",
+    "babel": "^4.7.8",
+    "body-parser": "^1.12.0",
+    "events": "^1.0.2",
+    "jsx-loader": "^0.12.2",
+    "koa": "^0.18.1",
+    "koa-body": "^1.1.0",
+    "koa-bodyparser": "^1.4.1",
+    "koa-cors": "0.0.14",
+    "koa-generic-session": "^1.8.0",
+    "koa-passport": "^1.1.4",
+    "koa-redis": "^1.0.0",
+    "koa-request": "^1.0.0",
+    "koa-router": "^4.2.0",
+    "passport": "^0.2.1",
+    "passport-twitter": "^1.0.3",
+    "react": "^0.13.0",
+    "rethinkdbdash": "^1.16.13",
+    "webpack": "^1.7.2"
+  },
+  "devDependencies": {
+    "babel-core": "^4.7.8",
+    "babel-loader": "^4.1.0",
+    "css-loader": "^0.9.1",
+    "react-hot-loader": "^1.2.2",
+    "style-loader": "^0.8.3",
+    "webpack-dev-server": "^1.7.0"
+  }
+}
