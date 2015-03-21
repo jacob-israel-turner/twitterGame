@@ -14,6 +14,7 @@ import session from 'koa-generic-session';
 import rethink from "./rethinkHub";
 import axios from 'axios';
 import { twitHub } from "./twitter/twitterFollowers";
+import { responseTime, authed } from './middleware';
 
 /* My consts */
 var replaceMe;
@@ -28,6 +29,7 @@ var router = koaRouter();
 
 
 /* App Middleware */
+app.use(responseTime);
 app.use(bodyParser());
 app.use(cors());
 app.keys = ['keys', 'keykeys'];
@@ -58,29 +60,11 @@ passport.deserializeUser(function(user, done){
     done(null, user)
 });
 
-/* My middleware */
-
-function* authed(next){
-    this.session.passport.user ? yield next : this.body = "no";
-}
-
 /* My Routes */
-router.get('/test', function* (){
-    this.body = yield rethink.testTable.get();
-});
-
-router.post('/test', function* (){
-    this.body = yield rethink.testTable.post(this.request.body);
-});
 
 router.get('/auth/callback', passport.authenticate('twitter', {successRedirect: `http://${publicUrl}`, failureRedirect: '/'}));
 
 router.get('/auth', passport.authenticate('twitter'));
-
-router.get('/api/user/:id', function* (){
-    console.log(this.params)
-    this.body = this.params
-})
 
 router.get('/auth/test', authed, function* (){
     this.body = yield twitHub.initialize(consumerKey, consumerSecret, twitToken, twitTokenSecret, this.session.passport.user.id);
