@@ -12,11 +12,8 @@ import session from 'koa-generic-session';
 
 /* My Imports */
 import rethink from "./rethinkHub";
-<<<<<<< HEAD
 import axios from 'axios';
-=======
 import { twitHub } from "./twitter/twitterFollowers";
->>>>>>> 1a5ce462a3063c67ecc7d19f4b79f624503af20a
 
 /* My consts */
 var replaceMe;
