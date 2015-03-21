@@ -4,6 +4,9 @@ import bodyParser from 'koa-bodyparser';
 import koaRouter from 'koa-router';
 import cors from 'koa-cors';
 import request from 'koa-request';
+import rethink from "./rethinkHub";
+import axios from 'axios';
+import socketio from 'socket.io';
 
 /* Auth Imports */
 import passport from 'koa-passport';
@@ -11,8 +14,6 @@ import TwitterStrategy from 'passport-twitter';
 import session from 'koa-generic-session';
 
 /* My Imports */
-import rethink from "./rethinkHub";
-import axios from 'axios';
 import { twitHub } from "./twitter/twitterFollowers";
 import { responseTime, authed } from './middleware';
 
@@ -26,6 +27,7 @@ const consumerSecret = 'fDMRNuU2DbQLjLb0oRWrkQqg5VB2ig1iStfdLPrPwkSjyX6QsS';
 /* Fire up app */
 var app = koa();
 var router = koaRouter();
+var io = socketio(app);
 
 
 /* App Middleware */

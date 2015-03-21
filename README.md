@@ -1,10 +1,5 @@
-we need:
+socket.io connections:
 
- - followers_count
- - friends_count
- - favourites_count
- - statuses_count
- - created_at
- - id
- - profile_background_color
- 
+ - user state
+ - bird state
+ - battle state

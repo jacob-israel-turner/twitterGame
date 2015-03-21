@@ -9,4 +9,4 @@ function* responseTime(next){
     this.set('X-Response-Time', `${ms} ms`)
 }
 
-export { authed, responseTime }
+export { authed, responseTime };
