@@ -1,23 +1,23 @@
 import React from 'react';
-require('./App.css');
+import Router from 'react-router'; 
+import routes from './routes/routes';
+var RouteHandler = Router.RouteHandler;
 
-import Input from './input/Input.jsx';
-import Output from './output/Output.jsx';
+require('./App.css');
 
 
 class App extends React.Component {
-    constructor(){
-        this.state = {
-            stuff: "So Much Stuff"
-        }
+  constructor(){
+    this.state = {
+      stuff: "So Much Stuff"
     }
-    render(){
-        return (
-            <div>
-                <Input here={this.state.stuff}/>
-                <Output />
-            </div>
-        )
-    }
+  }
+  render(){
+    return (
+      <div>
+
+      </div>
+    )
+  }
 }
 React.render(<App />, document.getElementById("app"));
